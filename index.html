@@ -498,6 +498,99 @@
                     </div>
                 </div>
             </div>
+
+        <!-- Sección 4.5: DIAGRAMA DE CASOS DE USO -->
+            <div class="seccion">
+                <div class="seccion-titulo">
+                    <span class="icono">🎨</span>
+                    DIAGRAMA DE CASOS DE USO: ELEMENTOS VISUALES
+                </div>
+                <div class="contenido">
+                    <div class="definicion-box">
+                        Un diagrama de casos de uso muestra gráficamente la relación entre actores y casos de uso dentro del sistema.
+                    </div>
+                    
+                    <div class="subtitulo">Elementos del Diagrama:</div>
+                    
+                    <div class="componentes-grid">
+                        <div class="componente">
+                            <div class="componente-titulo">🏢 SISTEMA</div>
+                            <div class="componente-desc">
+                                Representado por un <strong>rectángulo grande</strong> que contiene todos los casos de uso. Define el límite del sistema.
+                            </div>
+                        </div>
+                        
+                        <div class="componente">
+                            <div class="componente-titulo">👤 ACTOR</div>
+                            <div class="componente-desc">
+                                Representado por un <strong>monigote (stick figure)</strong>. Puede ser una persona, otro sistema, hardware, etc.
+                            </div>
+                        </div>
+                        
+                        <div class="componente">
+                            <div class="componente-titulo">⚙️ CASO DE USO</div>
+                            <div class="componente-desc">
+                                Representado por un <strong>óvalo u elipse</strong> con el nombre del caso de uso dentro. Describe una funcionalidad del sistema.
+                            </div>
+                        </div>
+                        
+                        <div class="componente">
+                            <div class="componente-titulo">↔️ RELACIÓN</div>
+                            <div class="componente-desc">
+                                Representada por una <strong>línea</strong> que conecta actores con casos de uso, indicando interacción.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ejemplo">
+                        <div class="ejemplo-titulo">📋 Ejemplo Visual de Diagrama:</div>
+                        <div style="background: white; padding: 20px; border-radius: 8px; margin-top: 10px; text-align: center;">
+                            <p style="font-weight: bold; margin-bottom: 15px; color: #1976d2;">Sistema de Biblioteca</p>
+                            <div style="border: 3px solid #333; padding: 30px; border-radius: 10px; display: inline-block; min-width: 500px; position: relative;">
+                                <p style="position: absolute; top: 5px; left: 10px; font-weight: bold; font-size: 0.9em;">Sistema</p>
+                                
+                                <div style="display: flex; justify-content: space-around; align-items: center; margin: 20px 0;">
+                                    <!-- Actor Usuario -->
+                                    <div>
+                                        <div style="font-size: 2em;">👤</div>
+                                        <p style="font-size: 0.85em; margin-top: 5px;">Usuario</p>
+                                    </div>
+                                    
+                                    <!-- Casos de uso -->
+                                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                                        <div style="border: 2px solid #666; border-radius: 50px; padding: 10px 25px; background: #f0f0f0;">
+                                            Buscar Libro
+                                        </div>
+                                        <div style="border: 2px solid #666; border-radius: 50px; padding: 10px 25px; background: #f0f0f0;">
+                                            Solicitar Préstamo
+                                        </div>
+                                        <div style="border: 2px solid #666; border-radius: 50px; padding: 10px 25px; background: #f0f0f0;">
+                                            Devolver Libro
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Actor Bibliotecario -->
+                                    <div>
+                                        <div style="font-size: 2em;">👤</div>
+                                        <p style="font-size: 0.85em; margin-top: 5px;">Bibliotecario</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="nota">
+                        <div class="nota-titulo">💡 Importante:</div>
+                        <ul>
+                            <li>Los actores se colocan <strong>fuera del rectángulo del sistema</strong></li>
+                            <li>Los casos de uso se colocan <strong>dentro del rectángulo del sistema</strong></li>
+                            <li>Las líneas conectan actores con los casos de uso que utilizan</li>
+                            <li>Un mismo actor puede estar conectado a múltiples casos de uso</li>
+                            <li>Un caso de uso puede ser utilizado por múltiples actores</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             
             <!-- Sección 5: LOS 10 MANDAMIENTOS -->
             <div class="seccion">
