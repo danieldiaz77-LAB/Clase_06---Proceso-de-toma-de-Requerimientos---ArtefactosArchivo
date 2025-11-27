@@ -540,7 +540,8 @@
                                 Representada por una <strong>línea</strong> que conecta actores con casos de uso, indicando interacción.
                             </div>
                         </div>
-                    </div>
+                    </div> 
+                    
                     
                     <div class="ejemplo">
                         <div class="ejemplo-titulo">📋 Ejemplo Visual de Diagrama:</div>
@@ -587,6 +588,127 @@
                             <li>Las líneas conectan actores con los casos de uso que utilizan</li>
                             <li>Un mismo actor puede estar conectado a múltiples casos de uso</li>
                             <li>Un caso de uso puede ser utilizado por múltiples actores</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección 4.6: PLANTILLA DE DESCRIPCIÓN DE CASOS DE USO -->
+            <div class="seccion">
+                <div class="seccion-titulo">
+                    <span class="icono">📄</span>
+                    PLANTILLA DE DESCRIPCIÓN DE CASOS DE USO
+                </div>
+                <div class="contenido">
+                    <div class="definicion-box">
+                        La descripción textual del caso de uso documenta todos los detalles de la interacción entre el actor y el sistema. Debe ser clara, completa y fácil de entender.
+                    </div>
+                    
+                    <div style="background: white; padding: 20px; border: 2px solid #1976d2; border-radius: 10px; margin: 20px 0;">
+                        <div style="background: #1976d2; color: white; padding: 10px; margin: -20px -20px 15px -20px; border-radius: 8px 8px 0 0;">
+                            <strong style="font-size: 1.1em;">PLANTILLA ESTÁNDAR DE CASO DE USO</strong>
+                        </div>
+                        
+                        <div style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 5px;">
+                            <strong style="color: #1976d2;">ID:</strong>
+                            <p style="margin: 5px 0 0 15px; color: #666;">Identificador único del caso de uso (ej: CU-001)</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 5px;">
+                            <strong style="color: #1976d2;">NOMBRE DESCRIPTIVO:</strong>
+                            <p style="margin: 5px 0 0 15px; color: #666;">Nombre claro y conciso que describe la funcionalidad (ej: "Registrar Préstamo de Libro")</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 5px;">
+                            <strong style="color: #1976d2;">DESCRIPCIÓN:</strong>
+                            <p style="margin: 5px 0 0 15px; color: #666;">Breve resumen de qué hace el caso de uso y su propósito principal</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 5px;">
+                            <strong style="color: #1976d2;">ACTORES:</strong>
+                            <p style="margin: 5px 0 0 15px; color: #666;">Lista de actores que participan en el caso de uso (Primarios y Secundarios)</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 15px; padding: 10px; background: #f5f5f5; border-radius: 5px;">
+                            <strong style="color: #1976d2;">PRECONDICIONES:</strong>
+                            <p style="margin: 5px 0 0 15px; color: #666;">Condiciones que deben cumplirse ANTES de que el caso de uso pueda ejecutarse</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 15px; padding: 10px; background: #fffbf0; border-radius: 5px; border-left: 4px solid #ffa500;">
+                            <strong style="color: #e67e22;">SECUENCIA NORMAL (Flujo Principal):</strong>
+                            <div style="margin: 10px 0 0 15px;">
+                                <p style="margin: 5px 0;"><strong>PASO 1:</strong> [Actor realiza acción]</p>
+                                <p style="margin: 5px 0; margin-left: 20px; color: #666;">→ [Sistema responde]</p>
+                                <p style="margin: 5px 0;"><strong>PASO 2:</strong> [Actor realiza siguiente acción]</p>
+                                <p style="margin: 5px 0; margin-left: 20px; color: #666;">→ [Sistema responde]</p>
+                                <p style="margin: 5px 0;"><strong>PASO N:</strong> [Última acción]</p>
+                                <p style="margin: 5px 0; margin-left: 20px; color: #666;">→ [Sistema responde y finaliza]</p>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 15px; padding: 10px; background: #fff0f0; border-radius: 5px; border-left: 4px solid #dc3545;">
+                            <strong style="color: #dc3545;">EXCEPCIONES (Flujos Alternativos):</strong>
+                            <div style="margin: 10px 0 0 15px;">
+                                <p style="margin: 5px 0;"><strong>EXCEPCIÓN 1:</strong> [Descripción del error o situación alternativa]</p>
+                                <p style="margin: 5px 0; margin-left: 20px; color: #666;">→ <strong>ACCIÓN:</strong> [Cómo maneja el sistema esta excepción]</p>
+                                <p style="margin: 10px 0 5px 0;"><strong>EXCEPCIÓN 2:</strong> [Otra situación excepcional]</p>
+                                <p style="margin: 5px 0; margin-left: 20px; color: #666;">→ <strong>ACCIÓN:</strong> [Respuesta del sistema]</p>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 0; padding: 10px; background: #f0fff4; border-radius: 5px; border-left: 4px solid #28a745;">
+                            <strong style="color: #28a745;">POSTCONDICIONES:</strong>
+                            <p style="margin: 5px 0 0 15px; color: #666;">Estado del sistema DESPUÉS de que el caso de uso se ejecuta exitosamente</p>
+                        </div>
+                    </div>
+                    
+                    <div class="ejemplo">
+                        <div class="ejemplo-titulo">📝 Ejemplo Completo: Caso de Uso "Solicitar Préstamo de Libro"</div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 10px; font-size: 0.95em;">
+                            <p><strong style="color: #1976d2;">ID:</strong> CU-002</p>
+                            <p style="margin-top: 8px;"><strong style="color: #1976d2;">NOMBRE:</strong> Solicitar Préstamo de Libro</p>
+                            <p style="margin-top: 8px;"><strong style="color: #1976d2;">DESCRIPCIÓN:</strong> Permite a un usuario registrado solicitar el préstamo de un libro disponible en la biblioteca.</p>
+                            <p style="margin-top: 8px;"><strong style="color: #1976d2;">ACTORES:</strong> Usuario (Primario), Sistema de Biblioteca (Secundario)</p>
+                            <p style="margin-top: 8px;"><strong style="color: #1976d2;">PRECONDICIONES:</strong></p>
+                            <ul style="margin-left: 35px; margin-top: 5px;">
+                                <li>El usuario está autenticado en el sistema</li>
+                                <li>El libro está disponible para préstamo</li>
+                                <li>El usuario no tiene préstamos vencidos</li>
+                            </ul>
+                            <p style="margin-top: 12px;"><strong style="color: #e67e22;">SECUENCIA NORMAL:</strong></p>
+                            <ol style="margin-left: 35px; margin-top: 5px; line-height: 1.8;">
+                                <li>El usuario busca el libro deseado</li>
+                                <li>El sistema muestra la información del libro y su disponibilidad</li>
+                                <li>El usuario selecciona "Solicitar Préstamo"</li>
+                                <li>El sistema verifica que el usuario puede realizar préstamos</li>
+                                <li>El sistema registra el préstamo y actualiza la disponibilidad del libro</li>
+                                <li>El sistema muestra confirmación con fecha de devolución</li>
+                            </ol>
+                            <p style="margin-top: 12px;"><strong style="color: #dc3545;">EXCEPCIONES:</strong></p>
+                            <ul style="margin-left: 35px; margin-top: 5px; line-height: 1.8;">
+                                <li><strong>E1:</strong> Si el libro no está disponible → El sistema muestra mensaje "Libro no disponible" y ofrece opción de reserva</li>
+                                <li><strong>E2:</strong> Si el usuario tiene préstamos vencidos → El sistema muestra mensaje de error y no permite el préstamo</li>
+                                <li><strong>E3:</strong> Si el usuario alcanzó el límite de préstamos → El sistema informa el límite alcanzado</li>
+                            </ul>
+                            <p style="margin-top: 12px;"><strong style="color: #28a745;">POSTCONDICIONES:</strong></p>
+                            <ul style="margin-left: 35px; margin-top: 5px;">
+                                <li>El préstamo queda registrado en el sistema</li>
+                                <li>El libro cambia su estado a "Prestado"</li>
+                                <li>Se genera una fecha de devolución (14 días desde la fecha de préstamo)</li>
+                                <li>El usuario recibe confirmación por email</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="nota">
+                        <div class="nota-titulo">✨ Consejos para escribir buenas descripciones:</div>
+                        <ul style="margin-top: 10px;">
+                            <li>Usa lenguaje claro y simple, evita tecnicismos innecesarios</li>
+                            <li>Numera los pasos de la secuencia normal para facilitar referencias</li>
+                            <li>Describe las excepciones más importantes y comunes</li>
+                            <li>Las precondiciones deben ser verificables</li>
+                            <li>Las postcondiciones deben describir el estado final del sistema</li>
+                            <li>Mantén la descripción en una página (Mandamiento #7)</li>
                         </ul>
                     </div>
                 </div>
@@ -741,15 +863,12 @@
                             </p>
                         </div>
                         
-                        <div class="componente-historia">
+                       <div class="componente-historia">
                             <strong>Quiero &lt;objetivo/deseo&gt;:</strong> Se describe su intención
-                            <p style="margin-top: 8px; color
- <div class="componente-historia">
-                        <strong>Para que &lt;beneficio&gt;:</strong> ¿Cómo encaja en la perspectiva general?
-                        <p style="margin-top: 8px; color: #555;">
-                            ¿Cuál es el <strong>beneficio general</strong> que intentan lograr? ¿Cuál es el <strong>gran problema</strong> que debe resolverse? Esto explica por qué el usuario necesita esta funcionalidad.
-                        </p>
-                    </div>
+                            <p style="margin-top: 8px; color: #555;">
+                                <strong>¿Qué es lo que están intentando lograr realmente?</strong> Esta descripción debe realizarse con <strong>independencia de las implementaciones</strong>. Si se describe algún elemento de la IU y no el objetivo del usuario, se está cometiendo un error.
+                            </p>
+                        </div>
                 </div>
                 
                 <div class="subtitulo">Elementos Adicionales que se deben añadir:</div>
@@ -778,6 +897,82 @@
                 </div>
             </div>
         </div>
+        <!-- Sección 8.5: EJEMPLOS PRÁCTICOS DE HISTORIAS DE USUARIO -->
+            <div class="seccion">
+                <div class="seccion-titulo">
+                    <span class="icono">💡</span>
+                    EJEMPLOS PRÁCTICOS DE HISTORIAS DE USUARIO
+                </div>
+                <div class="contenido">
+                    <div class="ejemplo">
+                        <div class="ejemplo-titulo">Ejemplo 1: Sistema de E-commerce</div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                            <p style="font-size: 1.05em; color: #1976d2; font-weight: bold; margin-bottom: 10px;">
+                                Como <span style="background: #fff3cd; padding: 2px 8px; border-radius: 4px;">cliente registrado</span>, 
+                                quiero <span style="background: #d4edda; padding: 2px 8px; border-radius: 4px;">guardar productos en mi lista de deseos</span> 
+                                para que <span style="background: #f8d7da; padding: 2px 8px; border-radius: 4px;">pueda comprarlos más tarde sin tener que buscarlos nuevamente</span>.
+                            </p>
+                            <p style="margin-top: 15px;"><strong>Criterios de Aceptación:</strong></p>
+                            <ul style="margin-left: 25px; margin-top: 8px; line-height: 1.7;">
+                                <li>El usuario puede agregar productos a la lista desde la página del producto</li>
+                                <li>La lista de deseos es persistente entre sesiones</li>
+                                <li>El usuario puede ver todos los productos guardados en una página dedicada</li>
+                                <li>El usuario recibe notificación si un producto de su lista tiene descuento</li>
+                                <li>El usuario puede eliminar productos de la lista en cualquier momento</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="ejemplo">
+                        <div class="ejemplo-titulo">Ejemplo 2: Sistema Educativo</div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                            <p style="font-size: 1.05em; color: #1976d2; font-weight: bold; margin-bottom: 10px;">
+                                Como <span style="background: #fff3cd; padding: 2px 8px; border-radius: 4px;">estudiante</span>, 
+                                quiero <span style="background: #d4edda; padding: 2px 8px; border-radius: 4px;">ver mi horario de clases en formato calendario</span> 
+                                para que <span style="background: #f8d7da; padding: 2px 8px; border-radius: 4px;">pueda organizar mejor mi tiempo y evitar conflictos</span>.
+                            </p>
+                            <p style="margin-top: 15px;"><strong>Criterios de Aceptación:</strong></p>
+                            <ul style="margin-left: 25px; margin-top: 8px; line-height: 1.7;">
+                                <li>El horario se muestra en vista semanal con días y horas</li>
+                                <li>Cada clase muestra: nombre, sala, profesor y horario</li>
+                                <li>Los conflictos de horario se destacan en color rojo</li>
+                                <li>El estudiante puede exportar el horario a PDF</li>
+                                <li>El horario se actualiza automáticamente si hay cambios</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="ejemplo">
+                        <div class="ejemplo-titulo">Ejemplo 3: Sistema Bancario</div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                            <p style="font-size: 1.05em; color: #1976d2; font-weight: bold; margin-bottom: 10px;">
+                                Como <span style="background: #fff3cd; padding: 2px 8px; border-radius: 4px;">usuario del banco</span>, 
+                                quiero <span style="background: #d4edda; padding: 2px 8px; border-radius: 4px;">recibir alertas de transacciones sospechosas</span> 
+                                para que <span style="background: #f8d7da; padding: 2px 8px; border-radius: 4px;">pueda proteger mi cuenta de fraudes</span>.
+                            </p>
+                            <p style="margin-top: 15px;"><strong>Criterios de Aceptación:</strong></p>
+                            <ul style="margin-left: 25px; margin-top: 8px; line-height: 1.7;">
+                                <li>El sistema detecta transacciones inusuales (monto, ubicación, horario)</li>
+                                <li>El usuario recibe notificación inmediata por SMS y email</li>
+                                <li>La notificación incluye detalles de la transacción</li>
+                                <li>El usuario puede confirmar o reportar la transacción desde la notificación</li>
+                                <li>Si se reporta como fraude, la cuenta se bloquea automáticamente</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="nota">
+                        <div class="nota-titulo">🎯 Observa en estos ejemplos:</div>
+                        <ul style="margin-top: 10px;">
+                            <li>El <strong>rol</strong> es específico y claro (no genérico)</li>
+                            <li>El <strong>objetivo</strong> describe QUÉ quiere hacer, no CÓMO (no menciona botones, menús, etc.)</li>
+                            <li>El <strong>beneficio</strong> explica el valor real para el usuario</li>
+                            <li>Los <strong>criterios de aceptación</strong> son medibles y verificables</li>
+                            <li>Se enfocan en el <strong>valor</strong> que entrega la funcionalidad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         
         <!-- Sección 9: COMPARACIÓN -->
         <div class="seccion">
