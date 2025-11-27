@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen Artefactos de Ingeniería de Requisitos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 30px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .titulo-principal {
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .pizarra {
+            background: #f5f5dc;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .seccion {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 3px solid #daa520;
+        }
+        
+        .seccion:last-child {
+            border-bottom: none;
+        }
+        
+        .seccion-titulo {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icono {
+            font-size: 1.5em;
+        }
+        
+        .contenido {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #daa520;
+        }
+        
+        .definicion-box {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #2196F3;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        
+        .componentes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .componente {
+            background: #fff9e6;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #ffa500;
+        }
+        
+        .componente-titulo {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #ff6b35;
+            margin-bottom: 8px;
+        }
+        
+        .componente-desc {
+            font-size: 0.95em;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .ejemplo {
+            background: #f0fff4;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .ejemplo-titulo {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        
+        .preguntas-construccion {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #1976d2;
+        }
+        
+        .preguntas-titulo {
+            font-weight: bold;
+            color: #1565c0;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        
+        .ventajas-peligros {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .box-ventajas {
+            background: #d4edda;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #28a745;
+        }
+        
+        .box-peligros {
+            background: #f8d7da;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #dc3545;
+        }
+        
+        .box-titulo {
+            font-weight: bold;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        
+        .box-ventajas .box-titulo {
+            color: #155724;
+        }
+        
+        .box-peligros .box-titulo {
+            color: #721c24;
+        }
+        
+        .mandamiento {
+            background: white;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 4px solid #e67e22;
+        }
+        
+        .mandamiento-num {
+            color: #e67e22;
+            font-weight: bold;
+            font-size: 1.15em;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .estructura-historia {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 3px solid #2196F3;
+        }
+        
+        .formula-historia {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 15px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .componente-historia {
+            background: #fff9e6;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .comparacion-box {
+            background: #f3e5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #9c27b0;
+        }
+        
+        .comparacion-titulo {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #6a1b9a;
+            margin-bottom: 15px;
+        }
+        
+        .comparacion-item {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+        
+        .nota {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+            margin: 15px 0;
+        }
+        
+        .nota-titulo {
+            font-weight: bold;
+            color: #f57f17;
+            margin-bottom: 8px;
+        }
+        
+        .ejercicio-final {
+            background: #e8f5e9;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin: 20px 0;
+        }
+        
+        .ejercicio-titulo {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #1b5e20;
+            margin-bottom: 15px;
+        }
+        
+        .paso-item {
+            background: white;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .subtitulo {
+            font-weight: bold;
+            color: #34495e;
+            font-size: 1.15em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .diagrama-componentes {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .diagrama-elemento {
+            display: inline-block;
+            background: white;
+            padding: 10px 20px;
+            margin: 8px;
+            border-radius: 20px;
+            border: 2px solid #666;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .componentes-grid, .ventajas-peligros {
+                grid-template-columns: 1fr;
+            }
+            
+            .titulo-principal {
+                font-size: 1.8em;
+            }
+            
+            .pizarra {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo-principal">📋 ARTEFACTOS DE INGENIERÍA DE REQUISITOS</h1>
+        
+        <div class="pizarra">
+            <!-- Sección 1: INTRODUCCIÓN -->
+            <div class="seccion">
+                <div class="seccion-titulo">
+                    <span class="icono">🎯</span>
+                    INTRODUCCIÓN: ¿QUÉ ES UN ARTEFACTO?
+                </div>
+                <div class="contenido">
+                    <div class="definicion-box">
+                        <strong>Definición:</strong> Un artefacto es un producto tangible resultante del proceso de desarrollo de software. Puede referirse a un producto terminado (como el código fuente) pero habitualmente se refiere a la documentación asociada al desarrollo del producto de software.
+                    </div>
+                    
+                    <div class="ejemplo">
+                        <div class="ejemplo-titulo">Ejemplos de Artefactos:</div>
+                        <ul>
+                            <li>Diagrama de clases</li>
+                            <li>Casos de uso</li>
+                            <li>Diagrama de componentes</li>
+                            <li>Otros modelos UML</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subtitulo">¿Para qué sirven los artefactos?</div>
+                    <p style="line-height: 1.7; margin-left: 15px;">
+                        Ayudan a la descripción de la <strong>función</strong>, <strong>arquitectura</strong> o <strong>diseño</strong> del software.
+                    </p>
+                    
+                    <div class="subtitulo">¿Quién usa los artefactos?</div>
+                    <p style="line-height: 1.7; margin-left: 15px;">
+                        Los <strong>ingenieros de software</strong> para entender qué es lo que se debe y cómo se debe construir el producto.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Sección 2: CASOS DE USO - CONCEPTO -->
+            <div class="seccion">
+                <div class="seccion-titulo">
+                    <span class="icono">🔄</span>
+                    CASOS DE USO: CONCEPTO BÁSICO
+                </div>
+                <div class="contenido">
+                    <div class="definicion-box">
+                        <strong>¿Qué es un Caso de Uso?</strong><br><br>
+                        Representa una <strong>interacción entre un usuario y un sistema informático</strong>. Se utilizan para capturar los <strong>requerimientos funcionales</strong> del sistema.
+                    </div>
+                    
+                    <div class="subtitulo">Componentes de un Caso de Uso:</div>
+                    
+                    <div style="margin-top: 15px;">
+                        <p style="font-weight: bold; color: #1976d2; margin-bottom: 10px;">1. DIAGRAMA DE CASOS DE USO</p>
+                        <div class="diagrama-componentes">
+                            <div class="diagrama-elemento">👤 Actor</div>
+                            <div class="diagrama-elemento">⚙️ Caso de uso</div>
+                            <div class="diagrama-elemento">↔️ Arco o relación</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <p style="font-weight: bold; color: #1976d2; margin-bottom: 10px;">2. DESCRIPCIÓN DEL CASO DE USO (debe incluir al menos):</p>
+                        <ul style="margin-left: 35px;">
+                            <li><strong>Inicio</strong> del caso de uso</li>
+                            <li><strong>Fin</strong> del caso de uso</li>
+                            <li><strong>Interacción</strong> entre el sistema y los actores</li>
+                            <li><strong>Intercambio de datos</strong></li>
+                            <li><strong>Cronología y origen</strong> de los datos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección 3: CONSTRUCCIÓN DE CASOS DE USO -->
+            <div class="seccion">
+                <div class="seccion-titulo">
+                    <span class="icono">🔨</span>
+                    CONSTRUCCIÓN DE CASOS DE USO
+                </div>
+                <div class="contenido">
+                    <div class="nota">
+                        <div class="nota-titulo">⚠️ Importante:</div>
+                        Es un <strong>proceso iterativo</strong> donde se pueden utilizar distintas técnicas. Los casos de uso <strong>NO pueden ser pequeños</strong>, deben <strong>entregarle valor al actor</strong>.
+                    </div>
+                    
+                    <div class="preguntas-construccion">
+                        <div class="preguntas-titulo">❓ Preguntas para descubrir casos de uso:</div>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>¿Cuáles son las principales tareas de cada actor?</li>
+                            <li>¿Manipula alguna información el actor del sistema?</li>
+                            <li>¿Los cambios externos son informados por el actor?</li>
+                            <li>¿El actor debe ser informado de los cambios no esperados?</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="subtitulo">Descubriendo los Actores:</div>
+                    <div class="componentes-grid">
+                        <div class="componente">
+                            <div class="componente-titulo">👥 Actores Principales</div>
+                            <div class="componente-desc">
+                                Son los que <strong>definen la estructura del sistema</strong>. Son los usuarios principales que interactúan directamente con el sistema.
+                            </div>
+                        </div>
+                        
+                        <div class="componente">
+                            <div class="componente-titulo">👤 Actores Secundarios</div>
+                            <div class="componente-desc">
+                                Son <strong>necesarios para que los principales puedan utilizar el sistema</strong>. Apoyan las funcionalidades principales.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="subtitulo">Pasos para construir casos de uso:</div>
+                    <ol style="margin-left: 35px; line-height: 1.8;">
+                        <li>Se descubren los escenarios desde el punto de vista de los usuarios del sistema (Actores)</li>
+                        <li>Se deben identificar los <strong>grandes trazos</strong> del caso de uso</li>
+                        <li>Describir en un par de frases las <strong>principales etapas</strong> del caso de uso</li>
+                    </ol>
+                    
+                    <div class="ejemplo">
+                        <div class="ejemplo-titulo">🎯 Se debe buscar:</div>
+                        <ul>
+                            <li>Una descripción que represente <strong>verdaderamente</strong> el caso de uso</li>
+                            <li>Las <strong>condiciones de inicio y fin</strong> del caso de uso deben estar bien definidas</li>
+                            <li>Las <strong>interacciones entre actores y sistema</strong> deben ser aprobadas por los usuarios</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="preguntas-construccion">
+                        <div class="preguntas-titulo">❓ ¿Cuándo dividir un caso de uso?</div>
+                        <p style="margin: 10px 0;">Si el caso de uso se hace muy grande, es conveniente dividirlo. Preguntas clave:</p>
+                        <ul style="margin-left: 20px;">
+                            <li>¿Es posible ejecutar un paso de forma <strong>independiente</strong> a los otros o se va encadenando con ellos?</li>
+                            <li>¿Es lógico <strong>agrupar varios pasos</strong> para documentarlos, probarlos o modificarlos en conjunto?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección 4: VENTAJAS Y PELIGROS -->
+            <div class="seccion">
+                <div class="seccion-titulo">
+                    <span class="icono">⚖️</span>
+                    VENTAJAS Y PELIGROS DE LOS CASOS DE USO
+                </div>
+                <div class="contenido">
+                    <div class="ventajas-peligros">
+                        <div class="box-ventajas">
+                            <div class="box-titulo">✅ VENTAJAS</div>
+                            <ul style="margin-left: 20px; line-height: 1.7;">
+                                <li>Ayudan a asegurar que se desarrollará el <strong>sistema correcto</strong></li>
+                                <li>Documentan las respuestas funcionales de <strong>caja negra</strong></li>
+                                <li>Buena forma de <strong>comunicación</strong> con los clientes y usuarios</li>
+                                <li>Ayudan a <strong>gestionar la complejidad</strong> de los proyectos grandes</li>
+                                <li>Ofrecen una base de <strong>verificación y validación</strong></li>
+                                <li>Modo <strong>objetivo</strong> para el seguimiento del proyecto</li>
+                                <li>Pueden servir como base para especificar respuestas a aplicaciones de <strong>tiempo real</strong></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="box-peligros">
+                            <div class="box-titulo">⚠️ PELIGROS</div>
+                            <ul style="margin-left: 20px; line-height: 1.7;">
+                                <li>Llevan a una descripción funcional del sistema, pero también pueden cubrir <strong>requerimientos no funcionales</strong></li>
+                                <li><strong>Violación de la ocultación de la información</strong>, debe existir una interfaz pública con la que interactúa el usuario</li>
+                                <li><strong>Falta de formalidad</strong> del caso de uso</li>
+                                <li><strong>No saber cuándo parar</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección 5: LOS 10 MANDAMIENTOS -->
+            <div class="seccion">
+                <div class="seccion-titulo">
+                    <span class="icono">📜</span>
+                    LOS 10 MANDAMIENTOS DE LOS CASOS DE USO
+                </div>
+                <div class="contenido">
+                    <div class="mandamiento">
+                        <span class="mandamiento-num">1️⃣ Mandamiento #1</span>
+                        Los casos de uso especifican los <strong>requisitos funcionales más importantes</strong>. Si es importante para el cliente (como imprimir informes), debe estar incluido en uno o más casos de uso.
+                    </div>
+                    
+                    <div class="mandamiento">
+                        <span class="mandamiento-num">2️⃣ Mandamiento #2</span>
+                        Un caso de uso describe algo que el diseñador <strong>estaría orgulloso de hacer</strong> y que el cliente <strong>estaría dispuesto a pagar con gusto</strong>. Cada caso de uso debe describir algo beneficioso para el usuario. Ejemplo: "producir un informe de venta" es bueno, pero "seleccionar una impresora" es demasiado pequeño.
+                    </div>
+                    
+                    <div class="mandamiento">
+                        <span class="mandamiento-num">3️⃣ Mandamiento #3</span>
+                        Un caso de uso describe una <strong>manera típica de usar el sistema, pero no más</strong>. Es como el manuscrito de una obra de teatro que describe lo que debe hacer un actor en un escenario dado. No debe dar demasiada libertad.
+                    </div>
+                    
+                    <div class="mandamiento">
+                        <span class="mandamiento-num">4️⃣ Mandamiento #4</span>
+                        Un caso de uso es una <strong>actuación</strong>. Debe describir la <strong>manera recomendada</strong> para ejecutar una tarea. No debería cubrir temas fuera de su incumbencia ni definir todas las posibles formas de ejecutar la tarea. Otras maneras se describen en otro caso de uso o en la sección de "Excepción".
+                    </div>
+                    
+                    <div class="mandamiento">
+                        <span class="mandamiento-num">5️⃣ Mandamiento #5</span>
+                        Un caso de uso tiene un <strong>comienzo, un cuerpo principal, y un final</strong>. Debe ser una historia completa. El comienzo define las condiciones iniciales, el cuerpo principal describe funcionalidad que el cliente pagaría con agrado, y el final describe los pasos para terminar.
+                    </div>
+                    
+                    <div class="mandamiento">
+                        <span class="mandamiento-num">6️⃣ Mandamiento #6</span>
+                        Un caso de uso es como un <strong>ensayo escrito por un estudiante de escuela básica</strong>. Describe el flujo explícito de las acciones, una después de la otra, exactamente como lo haría un niño.
+                    </div>
+                    
+                    <div class="mandamiento">
+                        <span class="mandamiento-num">7️⃣ Mandamiento #7</span>
+                        Un caso de uso <strong>cabe en una página</strong>. Los casos de uso grandes son difíciles de comprender porque son demasiado detallados o intentan cubrir demasiada funcionalidad. El problema se resuelve quebrándolo en dos o más casos de uso.
+                    </div>
+                    
+                    <div class="mandamiento">
+                        <span class="mandamiento-num">8️⃣ Mandamiento #8</span>
+                        Un caso de uso es <strong>fuerte y claro</strong>. Debe hacer afirmaciones claras y explícitas para que la gente pueda formarse opiniones fuertes. Debe motivar a los clientes a mejorar el sistema argumentando y discutiendo hasta lograr un acuerdo. Si nadie está en desacuerdo con la primera versión, probablemente es demasiado vago.
+                    </div>
+                    
+                    <div class="mandamiento">
+                        <span class="mandamiento-num">9️⃣ Mandamiento #9</span>
+                        Los <strong>clientes y diseñadores pueden firmar</strong> el caso de uso. Debe ser concreto y claro para que ambas partes lo puedan firmar. Los casos de uso actúan como un <strong>contrato</strong> entre clientes y desarrolladores. Nadie debería modificarlos sin la aprobación de todos.
+                    </div>
+                    
+                    <div class="mandamiento">
+                        <span class="mandamiento-num">🔟 Mandamiento #10</span>
+                        Un caso de uso puede ser usado en el <strong>desarrollo y la prueba del sistema</strong>. No se usan en forma aislada. Deben especificarse para usarse en las siguientes fases del proceso (análisis de objetos, análisis de comportamiento, prueba del sistema).
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección 6: HISTORIAS DE USUARIO -->
+            <div class="seccion">
+                <div class="seccion-titulo">
+                    <span class="icono">📝</span>
+                    HISTORIAS DE USUARIO
+                </div>
+                <div class="contenido">
+                    <div class="definicion-box">
+                        <strong>¿Qué es una Historia de Usuario?</strong><br><br>
+                        Es una <strong>explicación general e informal</strong> de una función de software escrita desde la <strong>perspectiva del usuario final</strong>. Su propósito es articular cómo proporcionará una función de software <strong>valor al cliente</strong>.
+                    </div>
+                    
+                    <div class="nota">
+                        <div class="nota-titulo">⚠️ Importante:</div>
+                        <strong>NO son requerimientos del sistema.</strong> Ayudan a proporcionar un marco centrado en el usuario para el trabajo diario.
+                    </div>
+                    
+                    <div class="subtitulo">Beneficios Clave de las Historias de Usuario:</div>
+                    <div class="componentes-grid">
+                        <div class="componente">
+                            <div class="componente-titulo">👥 Centran la atención en el usuario</div>
+                            <div class="componente-desc">
+                                Un conjunto de historias mantiene al equipo centrado en solucionar problemas para <strong>usuarios reales</strong>.
+                            </div>
+                        </div>
+                        
+                        <div class="componente">
+                            <div class="componente-titulo">🤝 Permiten la colaboración</div>
+                            <div class="componente-desc">
+                                El equipo puede colaborar para decidir cómo ofrecer un <strong>mejor servicio</strong> al usuario y cumplir con dicho objetivo.
+                            </div>
+                        </div>
+                        
+                        <div class="componente">
+                            <div class="componente-titulo">💡 Impulsan soluciones creativas</div>
+                            <div class="componente-desc">
+                                Fomentan que el equipo piense de forma <strong>crítica y creativa</strong> sobre cómo lograr mejor un objetivo.
+                            </div>
+                        </div>
+                        
+                        <div class="componente">
+                            <div class="componente-titulo">🎯 Motivan al equipo</div>
+                            <div class="componente-desc">
+                                Con cada historia el equipo disfruta de un <strong>pequeño reto y una pequeña victoria</strong>, lo que aumenta la motivación.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección 7: CÓMO ESCRIBIR HISTORIAS DE USUARIO -->
+            <div class="seccion">
+                <div class="seccion-titulo">
+                    <span class="icono">✍️</span>
+                    ¿CÓMO ESCRIBIR HISTORIAS DE USUARIO?
+                </div>
+                <div class="contenido">
+                    <div class="preguntas-construccion">
+                        <div class="preguntas-titulo">📋 Elementos clave para escribir historias:</div>
+                        <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8;">
+                            <li><strong>Definición de "Listo":</strong> La historia suele estar "lista" cuando el usuario puede <strong>completar la tarea descrita</strong>.</li>
+                            <li><strong>Describe tareas o subtareas:</strong> Decide qué pasos específicos deben completarse y <strong>quién es responsable</strong> de cada uno de ellos.</li>
+                            <li><strong>Perfiles de usuario:</strong> ¿Para quién? Si hay <strong>varios usuarios finales</strong>, considera crear varias historias.</li>
+                            <li><strong>Pasos ordenados:</strong> Escribe una historia para cada paso en un <strong>proceso más grande</strong>.</li>
+                            <li><strong>Escucha el feedback:</strong> Habla con los usuarios y capta sus <strong>problemas o necesidades</strong> en lo que dicen. No es necesario estar adivinando.</li>
+                            <li><strong>Tiempo:</strong> El tiempo es un tema delicado. Muchos equipos evitan hablarlo y confían en sus <strong>marcos de estimación</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección 8: ESTRUCTURA DE HISTORIAS DE USUARIO -->
+            <div class="seccion">
+                <div class="seccion-titulo">
+                    <span class="icono">📐</span>
+                    ESTRUCTURA DE LAS HISTORIAS DE USUARIO
+                </div>
+                <div class="contenido">
+                    <div class="estructura-historia">
+                        <div class="formula-historia">
+                            Como &lt;rol&gt;, quiero &lt;objetivo/deseo&gt; para que &lt;beneficio&gt;
+                        </div>
+                        
+                        <div class="componente-historia">
+                            <strong>Como &lt;rol&gt;:</strong> ¿Para quién desarrollamos esto?
+                            <p style="margin-top: 8px; color: #555;">
+                                No solo buscamos un puesto, buscamos el <strong>perfil de la persona</strong>. Identifica claramente quién es el usuario final que se beneficiará de esta funcionalidad.
+                            </p>
+                        </div>
+                        
+                        <div class="componente-historia">
+                            <strong>Quiero &lt;objetivo/deseo&gt;:</strong> Se describe su intención
+                            <p style="margin-top: 8px; color
+ <div class="componente-historia">
+                        <strong>Para que &lt;beneficio&gt;:</strong> ¿Cómo encaja en la perspectiva general?
+                        <p style="margin-top: 8px; color: #555;">
+                            ¿Cuál es el <strong>beneficio general</strong> que intentan lograr? ¿Cuál es el <strong>gran problema</strong> que debe resolverse? Esto explica por qué el usuario necesita esta funcionalidad.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="subtitulo">Elementos Adicionales que se deben añadir:</div>
+                
+                <div class="ejemplo">
+                    <div class="ejemplo-titulo">✅ Criterios de Aceptación</div>
+                    <p style="line-height: 1.7;">
+                        Aquí se especifica <strong>qué salidas obtendremos</strong> cuando finalice el proceso de ejecución de la funcionalidad, y sirve para <strong>verificar que está terminada</strong> la funcionalidad. Está relacionada con las pruebas que se realizarán para verificar el cumplimiento de la expectativa de:
+                    </p>
+                    <ul style="margin-top: 10px;">
+                        <li>Diseño</li>
+                        <li>Usabilidad</li>
+                        <li>Rendimiento</li>
+                        <li>Satisfacción del usuario</li>
+                    </ul>
+                </div>
+                
+                <div class="ejemplo">
+                    <div class="ejemplo-titulo">💬 Comentarios</div>
+                    <p style="line-height: 1.7;">
+                        Las historias de usuarios facilitan la <strong>interacción permanente con el cliente</strong> para verificar que lo que estamos construyendo está de acuerdo a sus expectativas. Esta negociación se va registrando según se necesite como <strong>comentarios o notas adicionales</strong> a tener en cuenta.
+                    </p>
+                    <p style="margin-top: 10px;">
+                        Esta forma de trabajo permite <strong>colaborar y mantener una comunicación fluida</strong> entre los miembros del equipo. Así, la historia va <strong>cambiando durante la marcha de la iteración</strong> y se va perfeccionando en conjunto.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección 9: COMPARACIÓN -->
+        <div class="seccion">
+            <div class="seccion-titulo">
+                <span class="icono">⚖️</span>
+                COMPARACIÓN: CASOS DE USO vs HISTORIAS DE USUARIO
+            </div>
+            <div class="contenido">
+                <div class="comparacion-box">
+                    <div class="comparacion-titulo">Diferencias Fundamentales:</div>
+                    
+                    <div class="comparacion-item">
+                        <strong style="color: #1976d2; font-size: 1.1em;">📖 Historia de Usuario = "QUÉ"</strong>
+                        <p style="margin-top: 8px; line-height: 1.7;">
+                            Representa el <strong>"QUÉ"</strong> quiere el cliente o usuario. Busca detallar una funcionalidad con el <strong>mínimo de detalle posible</strong> para generar las conversaciones necesarias.
+                        </p>
+                    </div>
+                    
+                    <div class="comparacion-item">
+                        <strong style="color: #e67e22; font-size: 1.1em;">🔧 Caso de Uso = "CÓMO"</strong>
+                        <p style="margin-top: 8px; line-height: 1.7;">
+                            Representa el <strong>"CÓMO"</strong> lo quiere. Detalla <strong>al completo</strong> las interacciones y respuestas de nuestro sistema.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="nota">
+                    <div class="nota-titulo">📊 Nivel de Detalle:</div>
+                    <ul style="margin-top: 10px;">
+                        <li><strong>Historia de Usuario:</strong> Detalle mínimo → Genera conversaciones</li>
+                        <li><strong>Caso de Uso:</strong> Detalle completo → Documenta todo el proceso</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección 10: CONSIDERACIONES FINALES -->
+        <div class="seccion">
+            <div class="seccion-titulo">
+                <span class="icono">🎓</span>
+                CONSIDERACIONES FINALES (CIERRE)
+            </div>
+            <div class="contenido">
+                <div class="ejemplo">
+                    <div class="ejemplo-titulo">💡 Puntos importantes a recordar:</div>
+                    <ul style="line-height: 1.8;">
+                        <li>Los <strong>actores</strong> en los casos de uso también pueden ser <strong>otros sistemas</strong>, no solo personas.</li>
+                        <li>En la descripción de los casos de uso e historias de usuario se puede añadir la <strong>frecuencia</strong> que ocurre y el <strong>tiempo</strong> que debe tomar realizar la acción descrita.</li>
+                        <li>Los casos de uso suelen tener un <strong>lenguaje más técnico</strong> que las historias de usuario.</li>
+                        <li>Los casos de uso son <strong>más difíciles de leer</strong> debido precisamente a su lenguaje técnico.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección 11: EJERCICIO PROPUESTO -->
+        <div class="seccion">
+            <div class="seccion-titulo">
+                <span class="icono">💪</span>
+                EJERCICIO PROPUESTO
+            </div>
+            <div class="contenido">
+                <div class="ejercicio-final">
+                    <div class="ejercicio-titulo">
+                        📚 EJERCICIO: Sistema de Toma de Asignaturas
+                    </div>
+                    
+                    <p style="background: #fff9e6; padding: 12px; border-radius: 6px; margin-bottom: 15px; line-height: 1.7;">
+                        <strong>Contexto:</strong> Acorde a los requerimientos encontrados en el ejercicio anterior (25 requerimientos de un sistema de toma de asignaturas), realizar lo siguiente:
+                    </p>
+                    
+                    <div class="paso-item">
+                        <strong style="color: #2e7d32;">Tarea 1:</strong> Identifique al menos <strong>4 actores</strong> del sistema.
+                        <p style="margin-top: 8px; color: #555; font-size: 0.95em;">
+                            Piensa en todos los usuarios que interactuarán con el sistema: estudiantes, profesores, administradores, etc.
+                        </p>
+                    </div>
+                    
+                    <div class="paso-item">
+                        <strong style="color: #2e7d32;">Tarea 2:</strong> Represente un diagrama con al menos <strong>15 casos de uso</strong> del sistema.
+                        <p style="margin-top: 8px; color: #555; font-size: 0.95em;">
+                            Crea un diagrama UML que muestre los actores, casos de uso y sus relaciones. Recuerda que cada caso de uso debe entregar valor.
+                        </p>
+                    </div>
+                    
+                    <div class="paso-item">
+                        <strong style="color: #2e7d32;">Tarea 3:</strong> Describa <strong>detalladamente un caso de uso</strong>.
+                        <p style="margin-top: 8px; color: #555; font-size: 0.95em;">
+                            Incluye: ID, nombre, descripción, actores, precondiciones, secuencia normal, excepciones y postcondiciones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección 12: RESUMEN FINAL -->
+        <div class="seccion">
+            <div class="seccion-titulo">
+                <span class="icono">🎯</span>
+                RESUMEN FINAL
+            </div>
+            <div class="contenido">
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; border-left: 5px solid #1976d2;">
+                    <p style="font-weight: bold; font-size: 1.15em; color: #1565c0; margin-bottom: 15px;">
+                        Puntos Clave de la Clase:
+                    </p>
+                    <ul style="line-height: 2;">
+                        <li><strong>Artefactos:</strong> Productos tangibles del desarrollo (documentación, diagramas)</li>
+                        <li><strong>Casos de Uso:</strong> Capturan requerimientos funcionales mostrando interacciones usuario-sistema</li>
+                        <li><strong>Construcción iterativa:</strong> Los casos de uso se descubren y refinan progresivamente</li>
+                        <li><strong>Los 10 Mandamientos:</strong> Guías para crear casos de uso efectivos y útiles</li>
+                        <li><strong>Historias de Usuario:</strong> Explicaciones informales centradas en el valor para el usuario</li>
+                        <li><strong>Estructura "Como-Quiero-Para que":</strong> Formato estándar de historias de usuario</li>
+                        <li><strong>Diferencia clave:</strong> Historias = QUÉ (mínimo detalle), Casos de Uso = CÓMO (detalle completo)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+```D
